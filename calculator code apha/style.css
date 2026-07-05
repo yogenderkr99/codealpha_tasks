@@ -1,0 +1,28 @@
+.calculator-card {
+  width: 100%;
+  max-width: 380px;
+  border: 2px solid #343a40;
+}
+
+#display {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1px;
+  cursor: default;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+.btn {
+  transition: all 0.15s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CodeAlpha - Reference Standard Calculator</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+
+        <div class="calculator-card shadow-lg p-4 rounded-4 bg-dark text-white">
+
+                <div class="mb-3">
+                        <input type="text" id="display"
+                                class="form-control text-end fs-1 bg-secondary text-white border-0 py-3 px-3 rounded-3"
+                                readonly value="0">
+                </div>
+
+                <div class="mb-3">
+                        <button class="btn btn-sm btn-outline-info w-100 text-start d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#operatorGuide">
+                                <span>ℹ️ View Special Operators Guide</span>
+                                <span class="fs-6">▼</span>
+                        </button>
+                        <div class="collapse mt-2 text-start" id="operatorGuide">
+                                <div class="bg-secondary p-2 rounded-3 fs-7 text-light">
+                                        <ul class="list-unstyled mb-0 small">
+                                                <li><strong>x² (Square):</strong> Multiplies the number by itself.</li>
+                                                <li><strong>√ (Square Root):</strong> Finds the base square value.</li>
+                                                <li><strong>± (Toggle Sign):</strong> Inverts value polarity.</li>
+                                                <li><strong>% (Modulo):</strong> Returns division remainder.</li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+
+                <div class="row g-2">
+                        <div class="col-3"><button class="btn btn-secondary w-100 py-3 fs-5 fw-bold rounded-3"
+                                        onclick="square()">x²</button></div>
+                        <div class="col-3"><button class="btn btn-secondary w-100 py-3 fs-5 fw-bold rounded-3"
+                                        onclick="squareRoot()">√</button></div>
+                        <div class="col-3"><button class="btn btn-secondary w-100 py-3 fs-5 fw-bold rounded-3"
+                                        onclick="toggleSign()">±</button></div>
+                        <div class="col-3"><button class="btn btn-secondary w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="appendValue('%')">%</button></div>
+
+                        <div class="col-6"><button class="btn btn-danger w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="clearScreen()">C</button></div>
+                        <div class="col-3"><button class="btn btn-warning w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="deleteLast()">DEL</button></div>
+                        <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="appendValue('/')">÷</button></div>
+
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('7')">7</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('8')">8</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('9')">9</button></div>
+                        <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="appendValue('*')">×</button></div>
+
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('4')">4</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('5')">5</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('6')">6</button></div>
+                        <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="appendValue('-')">-</button></div>
+
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('1')">1</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('2')">2</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('3')">3</button></div>
+                        <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="appendValue('+')">+</button></div>
+
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('00')">00</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('0')">0</button></div>
+                        <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 rounded-3"
+                                        onclick="appendValue('.')">.</button></div>
+                        <div class="col-3"><button class="btn btn-success w-100 py-3 fs-4 fw-bold rounded-3"
+                                        onclick="calculateResult()">=</button></div>
+                </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
