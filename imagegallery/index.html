@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Interactive Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="header-top">
+      <h1>Visual Canvas</h1>
+      <button id="theme-toggle" class="control-btn" aria-label="Toggle Theme">🌓</button>
+    </div>
+
+    <div class="controls-wrapper">
+      <div class="search-box">
+        <input type="text" id="gallery-search" placeholder="Type keywords (e.g., lake, facade, code)...">
+      </div>
+
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+        <button class="filter-btn" data-filter="tech">Tech</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="slideshow-container">
+    <div class="hero-slider" id="hero-slider">
+      <div class="slide active" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80"
+          alt="Alpine mountains lake forest landscape wilderness green trees">
+        <div class="slide-caption">Explore The Great Outdoors</div>
+      </div>
+      <div class="slide" data-category="architecture">
+        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80"
+          alt="Chicago Downtown Skyscraper City Lights Skyline Night architectural facade">
+        <div class="slide-caption">Architectural Marvels</div>
+      </div>
+      <div class="slide" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80"
+          alt="Developer workstation computer monitor screen running terminal javascript python code IDE hardware">
+        <div class="slide-caption">Tomorrow's Digital Horizon</div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="fallback-message hide" id="search-fallback"></div>
+
+    <div class="gallery-grid" id="gallery">
+      <div class="gallery-item" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80"
+          alt="Alpine mountains lake forest landscape wilderness green trees">
+      </div>
+      <div class="gallery-item" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80"
+          alt="Sunlight beaming through deep green forest trees path woodland wilderness">
+      </div>
+      <div class="gallery-item" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+          alt="Green field meadows beautiful beach sunset vibrant glowing orange sky clouds">
+      </div>
+      <div class="gallery-item" data-category="nature">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+          alt="Volcanic crystal clear blue crater lake under deep blue daytime sky alpine">
+      </div>
+
+      <div class="gallery-item" data-category="architecture">
+        <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=800&q=80"
+          alt="Minimal modern brutalist concrete architecture facade museum windows shadow">
+      </div>
+      <div class="gallery-item" data-category="architecture">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+          alt="Skyscraper glass windows reflecting blue sky city center towers steel structures">
+      </div>
+      <div class="gallery-item" data-category="architecture">
+        <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=800&q=80"
+          alt="San Francisco golden gate bridge ocean fog orange structure suspension cables architecture">
+      </div>
+      <div class="gallery-item" data-category="architecture">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+          alt="Luxury modern home residential villa exterior yard swimming pool design house facade">
+      </div>
+
+      <div class="gallery-item" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+          alt="Developer workstation computer monitor screen running terminal javascript python code IDE setup">
+      </div>
+      <div class="gallery-item" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
+          alt="Modern aluminum tech gadgets desk setup smartphone wireless laptop keyboard trackpad mouse">
+      </div>
+      <div class="gallery-item" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+          alt="Green electronic printed circuit board component microchip details computer hardware processor tech">
+      </div>
+      <div class="gallery-item" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+          alt="Cyber security matrix digital system green lines binary hacking background code encryption tech">
+      </div>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn">&times;</span>
+    <span id="lightbox-counter" class="lightbox-counter">0 / 0</span>
+
+    <button class="nav-btn prev-btn" aria-label="Previous image">&#10094;</button>
+
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Expanded Canvas">
+      <div class="lightbox-meta">
+        <div id="lightbox-caption"></div>
+        <button id="lightbox-download" class="download-btn" title="Download Image">📥 Save</button>
+      </div>
+    </div>
+
+    <button class="nav-btn next-btn" aria-label="Next image">&#10095;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
